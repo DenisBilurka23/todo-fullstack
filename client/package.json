@@ -2,7 +2,7 @@
   "name": "vital",
   "version": "1.0.0",
   "description": "Fullstack todo manager",
-  "homepage": "https://github.com/jvidalv/vital#readme",
+  "homepage": ".",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jvidalv/vital.git"
