@@ -19,6 +19,7 @@ const App: FC = () => {
 	return (
 		<main className="container mx-auto border-2 px-7 py-4 mt-10 border-r-2 rounded-2xl">
 			<div className="flex -mx-2">
+				{/* @ts-expect-error */}
 				<Search data={data} setData={setData} />
 				<AddTodo setData={setData} />
 			</div>

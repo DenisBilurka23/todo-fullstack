@@ -2,11 +2,10 @@ import TodoItem from 'components/TodoItem/todoItem'
 import { type Data } from '../../types/types'
 import { type Dispatch, type FC, type SetStateAction, useState } from 'react'
 import EditTodo from 'components/EditTodo/editTodo'
-import { updateTodo } from '../../api/api'
 
 interface PropTypes {
 	todoItems: Data[] | null
-	setData: Dispatch<SetStateAction<Data[] | null>>
+	setData: Dispatch<SetStateAction<Data[]>>
 }
 
 const TodoList: FC<PropTypes> = ({ todoItems, setData }) => {

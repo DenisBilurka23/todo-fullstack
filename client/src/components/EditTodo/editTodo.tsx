@@ -6,7 +6,7 @@ import { updateTodo } from '../../api/api'
 
 interface PropTypes {
 	editItem: Data | null
-	setModalOpen: Dispatch<SetStateAction<Data | null>>
+	setModalOpen: Dispatch<SetStateAction<Data>>
 	setData: Dispatch<SetStateAction<Data[]>>
 }
 
@@ -33,7 +33,8 @@ const EditTodo: FC<PropTypes> = ({ editItem, setModalOpen, setData }) => {
 		if (editItem) {
 			const res = await updateTodo(editItem._id, { active, task })
 			setData(prev => {
-				const replaceItemIndex = prev.findIndex((item: Data) => item._id === res._id)
+				const replaceItemIndex = prev.findIndex((item: Data) => item._id === res?._id)
+				// @ts-expect-error
 				return prev.toSpliced(replaceItemIndex, 1, res)
 			})
 		}

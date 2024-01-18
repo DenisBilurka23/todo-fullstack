@@ -18,24 +18,22 @@ const TodoItem: FC<PropTypes> = ({ data, setData, setEditItem }) => {
 	const handleOnDelete: (id: number) => () => Promise<void> = id => async () => {
 		const res = await deleteTodo(id)
 		if (res) {
-			setData((prev: Data[]) => prev?.filter(item => item._id !== id))
+			setData((prev: Data[]) => prev?.filter(item => item?._id !== id))
 		}
 	}
 
 	const handleEditTodo: (editItem: Data) => () => Promise<any> = editItem => async () => {
 		const res = await updateTodo(editItem._id, { active: !editItem.active })
 		setData(prev => {
-			const replaceItemIndex = prev?.findIndex((item: Data) => item._id === res._id)
+			const replaceItemIndex = prev?.findIndex((item: Data) => item._id === res?._id)
+			// @ts-expect-error
 			return prev.toSpliced(replaceItemIndex, 1, res)
 		})
 	}
 
 	return (
-		<li
-			onClick={handleEditTodo(data)}
-			className={`flex justify-between gap-x-6 py-4 relative cursor-pointer ${!data.active ? 'line-through' : ''}`}
-		>
-			<div className="flex min-w-0 gap-x-4">
+		<li className={`flex justify-between gap-x-6 py-4 relative cursor-pointer ${!data.active ? 'line-through' : ''}`}>
+			<div className="flex min-w-0 gap-x-4 grow" onClick={handleEditTodo(data)}>
 				<div className="min-w-0 flex-auto flex">
 					{!data.active && (
 						<div className="-ml-5">

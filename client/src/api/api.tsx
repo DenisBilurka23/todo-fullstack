@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { type Data } from '../types/types'
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_BASE_URL
 
 export const getData: (task?: string) => Promise<Data[]> = async task => {
 	try {

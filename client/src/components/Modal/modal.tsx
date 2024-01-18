@@ -1,8 +1,8 @@
 import { type FC, Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { type Modal } from '../../types/types'
+import { type Modal as ModalType } from '../../types/types'
 
-const Modal: FC<Modal> = ({ isOpen, setIsOpen, handler, title, children }) => {
+const Modal: FC<ModalType> = ({ isOpen, setIsOpen, handler, title, children }) => {
 	const cancelButtonRef = useRef(null)
 
 	const handleClose = (): void => {
@@ -15,7 +15,7 @@ const Modal: FC<Modal> = ({ isOpen, setIsOpen, handler, title, children }) => {
 	}
 
 	return (
-		<Transition.Root show={isOpen} as={Fragment}>
+		<Transition.Root show={isOpen || false} as={Fragment}>
 			<Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={handleClose}>
 				<Transition.Child
 					as={Fragment}

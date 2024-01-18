@@ -18,6 +18,7 @@ const AddTodo: FC<{ setData: Dispatch<SetStateAction<Data[]>> }> = ({ setData })
 
 	const handleAddTodo = async (): Promise<void> => {
 		const res: Data = await addTodo(value)
+		setValue('')
 		setData((prev: Data[]) => [...prev, res])
 	}
 

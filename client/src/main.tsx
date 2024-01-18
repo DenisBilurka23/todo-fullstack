@@ -5,7 +5,6 @@ import App from 'app/app'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-expect-error
 	<React.StrictMode>
 		<App />
 	</React.StrictMode>

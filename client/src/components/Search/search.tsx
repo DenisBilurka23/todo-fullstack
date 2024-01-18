@@ -6,7 +6,7 @@ const Search: FC<{ setData: Dispatch<SetStateAction<Data[]>> }> = ({ setData }) 
 	const [searchValue, setSearchValue] = useState<string>('')
 
 	const debounce: any = (func, delay: number) => {
-		let timeoutId: number
+		let timeoutId: any
 
 		return function (...args) {
 			clearTimeout(timeoutId)
